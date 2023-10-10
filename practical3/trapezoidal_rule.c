@@ -13,12 +13,12 @@ int main(void){
 
 	//setting values of a, b, N
 	a = 0;
-	b = M_PI/3;
+	b = M_PI/3.0;
 	N = 12;	
 
 	//First part of the sum
 	x = tan(0);
-	y = tan(M_PI/3);
+	y = tan(M_PI/3.0);
 	endpoints = x + y;
 
 
@@ -26,8 +26,8 @@ int main(void){
 	x = 0;
 	y = 0;
 	sum = 0;
-	for(i = 0; i < N - 2; i++){ 		//-2 need N-1 points AND count starts from 0
-		x += (M_PI/3)/11;
+	for(i = 0; i < N - 1; i++){ 		//-2 need N-1 points AND count starts from 0
+		x += (M_PI/3.0)/12.0;
 		sum += 2*tan(x);
 		
 		//printf("x = %f\nsum = %f\ni = %d\n\n", x, sum, i);	//checking the outputs
