@@ -3,3 +3,4 @@ Directory containing practical 3 (05/10/23)
 Computing the area under a curve using the trapezoidal rule
 
 Not sure if error free 05/10. Need to validate later
+also need to tidy
