@@ -17,24 +17,32 @@ int main(void){
 	i = 0;
 	j = 0; 
 	
-	for(j=0;j<4;j++){
-		for(i=0;i<4;i++){
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++){
 			matrix[i][j] = 1/(double) (j+i+1);
 			//printf("matrix[%d][%d] = %f\n", i, j, matrix[i][j]);
 		}
 	}
-
+	
+	//printing the matrix
+	for(i=0;i<4;i++){
+		printf("%f  %f  %f  %f\n",matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3]);
+	}
+	
 	/*calling the function that calculates 
     the determinant of a 3x3 matrix */
     double det4;
 	det4 =  cramers(matrix);
-	printf("the det of the 4x4 matrix is %f\n", det4);	
+	printf("\nthe det of the 4x4 matrix is %f\n", det4);	
 
 
 
 
 	return 0;
 }
+
+
+
 
 //function to calculate the determinant of a 3x3 matrix
 double det3(double matrix[3][3]){
@@ -43,12 +51,15 @@ double det3(double matrix[3][3]){
 	det = matrix[0][0]*matrix[1][1]*matrix[2][2] + 
     matrix[0][1]*matrix[1][2]*matrix[2][0] +
     matrix[0][2]*matrix[1][0]*matrix[2][1] -
-    matrix[0][0]*matrix[1][3]*matrix[3][2] -
+    matrix[0][0]*matrix[1][2]*matrix[2][1] -
     matrix[0][1]*matrix[1][0]*matrix[2][2] -
     matrix[0][2]*matrix[1][1]*matrix[2][0] ;
 	
 	return det;
 }
+
+
+
 
 /*function to split 4x4 matrix into 3x3 matricies,
  * the dets of which will be calculated*/
@@ -84,9 +95,9 @@ double cramers(double matrix[4][4]){
 				j += 2;
 			}	
 			bmat[i-1][j-1] = matrix[i][j];			
-
 		}
 	}
+
 
 	//cmat
 	for(i=1;i<4;i++){
@@ -94,19 +105,15 @@ double cramers(double matrix[4][4]){
 			if(j!=2){
 				j--;
 				cmat[i-1][j] = matrix[i][j];
-				j++;
-				
+				j++;			
 			}	
 			else{j++;
-
-	
 				cmat[i-1][j-1] = matrix[i][j];
 				break;
-			}
-		
+			}	
 			cmat[i-1][j] = matrix[i][j];
 		}	
-		}
+	}
 
 	//dmat
 	for(i=1;i<4;i++){
@@ -126,16 +133,6 @@ final_det = a * det3(amat)
 			- d * det3(dmat);
 
 return final_det;
-
-
-
-
-
-
-
-
-
-
 
 }
 
