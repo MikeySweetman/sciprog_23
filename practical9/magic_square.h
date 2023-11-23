@@ -21,7 +21,7 @@ int isMagicSquare(int ** square, const int n){
 			colSum += square[j][i];
 		}
 		printf("i = %d, rowSum = %d, colSum = %d\n", i, rowSum, colSum);
-		if(rowsum != M || colSum != M){
+		if(rowSum != M || colSum != M){
 			return 0;
 		}
 	}
@@ -33,7 +33,7 @@ int isMagicSquare(int ** square, const int n){
 	int secDiagSum = 0;
 	
 	for(i=0;i<n;i++){
-		diagSum += square[i][j];
+		diagSum += square[i][i];
 		secDiagSum += square[i][n - i - 1];
 	}
 	
